@@ -1,0 +1,14 @@
+add_newline = false
+
+[directory]
+truncate_to_repo = false
+truncation_length = 10
+
+[username]
+show_always = true
+
+[hostname]
+ssh_only = false
+
+[status]
+disabled = false

@@ -1,0 +1,79 @@
+firefox
+git
+
+go
+yay
+
+tmux neovim
+
+sass
+dash-to-dock
+
+fastfetch
+
+ufw linux-firmware-qlogic vlc fwupd gedit
+
+yay -S upd72020x-fw ast-firmware aic94xx-firmware wd719x-firmware
+
+meson ninja
+desktop-icon-ng
+
+file-roller p7zip unrar
+tray-icons-reloaded
+
+gnome-terminal alacritty (and nerd-font)
+
+power-profiles-daemon (and enable)
+
+yay auto-cpufreq (and enable)
+
+zsh eza zsh-syntax-highlighting zsh-autosuggestions pkgfile starship
+
+nmap wireshark-qt
+
+samba
+
+hyperfine
+
+thunderbird
+
+cups cups-pdf (and enable socket)
+
+borna-fonts iran-nastaliq-fonts
+
+man-db bat
+
+jdk-openjdk
+
+visual-studio-code-bin
+
+nodejs npm dolphin mariadb redis libreoffice-fresh
+
+bind bitwarden celluloid erdtree fd freeplane inkscape irqbalance jq jupyter-notebook mkvtoolnix-gui nginx obs-studio onefetch openocd qbittorrent ruff scapy telegram-desktop traceroute virtualbox whois archiso arm-none-eabi-gcc arm-none-eabi-newlib virtualbox-guest-iso
+
+docker arduino-ide chrony
+
+yay -S google-chrome activitywatch-bin postman-bin
+
+yay -S localsend-bin rustdesk-bin  anydesk-bin marktext-bin  logseq-desktop-bin
+
+pacman-contrib (and enable paccache.timer)
+
+alsa-utils alsa-plugins alsa-firmware
+
+yay -S vazirmatn-fonts
+
+ttf-joypixels otf-openmoji noto-fonts-emoji
+
+yay -S ttf-mononoki ttf-monaco
+otf-hermit ttf-hack
+
+cantarell-fonts gnu-free-fonts ttf-opensans
+
+ttf-linux-libertine ttf-gentium-plus gnu-free-fonts
+
+yay -S iranian-fonts ttf-tahoma
+
+pacman -S ntfs-3g
+
+

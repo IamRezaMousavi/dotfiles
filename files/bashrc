@@ -1,0 +1,25 @@
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+PS1='[\u@\h \W]\$ '
+
+alias ip='ip -color=auto'
+
+eval "$(starship init bash)"
+alias ll='exa -lg --icons'
+alias tree='exa -T'
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
+. "$HOME/.cargo/env"
+
+# Command not found
+source /usr/share/doc/pkgfile/command-not-found.bash
+
+export GPG_TTY=$(tty)
+
