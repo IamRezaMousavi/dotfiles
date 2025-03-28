@@ -25,8 +25,6 @@ alias ll='eza -lg --icons'
 alias tree='eza -T --icons'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-. "$HOME/.cargo/env"
-
 export GPG_TTY=$(tty)
 
 # Install zsh-syntax-highlighting, zsh-autosuggestions

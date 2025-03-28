@@ -16,8 +16,6 @@ alias ll='exa -lg --icons'
 alias tree='exa -T'
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
-. "$HOME/.cargo/env"
-
 # Command not found
 source /usr/share/doc/pkgfile/command-not-found.bash
 

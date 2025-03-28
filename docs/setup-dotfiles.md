@@ -9,13 +9,8 @@ Refrence to setup dotfiles...
 - [Git](#git)
 - [Change Default Shell](#change-default-shell)
 - [Vim](#vim)
-- [Nerd font](#nerd-font)
-- [System font](#system-font)
-- [Starship](#starship)
-- [Desktop files](#desktop-files)
 - [Set Default Application](#set-default-application)
 - [Pacman cleaning](#pacman-cleaning)
-- [Templates](#templates)
 - [ARM Toolchain](#arm-toolchain)
 - [Android Studio](#android-studio)
 
@@ -73,48 +68,6 @@ then run `PluginInstall` in `vim`
 
 ---
 
-## Nerd font
-
-Use for terminal font:
-
-```bash
-unzip ./nerd-font/DaddyTimeMono.zip -d DaddyTimeMono
-mkdir -p ~/.local/share/fonts
-cp ./DaddyTimeMono/*.ttf ~/.local/share/fonts/
-rm -rf ./DaddyTimeMono/
-```
-
----
-
-## System font
-
-Customize font of OS:
-
-```bash
-mkdir ~/.config/fontconfig
-cp fonts.conf ~/.config/fontconfig/
-```
-
----
-
-## Starship
-
-```bash
-cp ./config/starship.toml ~/.config/
-```
-
----
-
-## Desktop files
-
-Custome desktop files:
-
-```bash
-cp -r ./desktopfiles/* ~/.local/share/applications/
-```
-
----
-
 ## Set Default Application
 
 ```bash
@@ -141,18 +94,6 @@ paccache -r
 ```
 
 and can enable `paccache.timer` with systemd
-
-
-
----
-
-## Templates
-
-create files with right click and chosing a template file:
-
-```bash
-cp -r Templates/ ~/Templates
-```
 
 ---
 
@@ -185,4 +126,3 @@ sudo pacman -S lib32-glibc lib32-ncurses lib32-gcc-libs lib32-zlib lib32-bzip2
 ```
 
 ---
-
