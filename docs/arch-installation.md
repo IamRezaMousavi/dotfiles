@@ -28,13 +28,13 @@ This document is a guide for installing Arch Linux using the live system booted 
   - [Users and groups](#users-and-groups)
   - [Security](#security)
 - [Package management](#package-management)
-  - [Pacman](#pacman)
   - [Mirrors](#mirrors)
   - [Arch user repository](#arch-user-repository)
 - [Graphical user interface](#graphical-user-interface)
   - [Display server](#display-server)
   - [Desktop environments](#desktop-environments)
 - [Power managment](#power-managment)
+  - [ACPI events](#acpi-events)
   - [Cpu frequency scaling](#cpu-frequency-scaling)
 - [Multimedia](#multimedia)
   - [Sound system](#sound-system)
@@ -44,17 +44,20 @@ This document is a guide for installing Arch Linux using the live system booted 
   - [Laptop touchscreen](#laptop-touchscreen)
 - [Optimization](#optimization)
   - [Improving performance](#improving-performance)
+  - [Solid state drives](#solid-state-drives)
 - [System services](#system-services)
   - [Printing](#printing)
 - [Appearance](#appearance)
   - [Fonts](#fonts)
-  - [Gtk and Qt themes](#gtk-and-qt-themes)
 - [Console improvements](#console-improvements)
   - [Tab-completion enhancements](#tab-completion-enhancements)
+  - [Alternative shells](#alternative-shells)
   - [Bash additions](#bash-additions)
+  - [Console prompt](#console-prompt)
+  - [Mouse support](#mouse-support)
   - [Session management](#session-management)
-- [Missing firmwares](#missing-firmwares)
 - [List of applications](#list-of-applications)
+- [Missing firmwares](#missing-firmwares)
 - [Bluetooth](#bluetooth)
 
 ---
@@ -91,10 +94,10 @@ timedatectl status
 ```bash
 > fdisk -l # for mbr
 > fdisk /dev/the_disk_to_be_partitioned
+> gdisk # for uefi
 ```
 
 ```bash
-> gdisk # for uefi
 > cfdisk # In graphic mode
 ```
 
@@ -112,6 +115,13 @@ timedatectl status
 > mount /dev/<partition_name> /mnt
 > mount --mkdir /dev/<efi_partition_name> /mnt/boot
 > swapon /dev/<swap_partition_name>
+```
+
+#### Swap
+
+```bash
+> pacman -S zram-generator
+> systemctl enable systemd-zram-setup@zram0
 ```
 
 ---
@@ -196,7 +206,7 @@ timedatectl status
 ### Users and groups
 
 ```bash
-> useradd -mG wheel <username>
+> useradd -mG wheel <username> # create and add user to wheel group
 > passwd <username>
 ```
 
@@ -211,12 +221,6 @@ timedatectl status
 ---
 
 ## Package management
-
-### Pacman
-
-```bash
-> cp etc/pacman.conf /etc/pacman.conf
-```
 
 ### Mirrors
 
@@ -258,11 +262,21 @@ timedatectl status
 
 ## Power managment
 
+### ACPI events
+
+```bash
+> pacman -S acpid
+> systemctl enable acpid
+```
+
 ### CPU frequency scaling
 
 ```bash
-> pacman -S power-profiles-daemon
+> pacman -S cpupower power-profiles-daemon
+> systemctl enable cpupower
 > systemctl enable power-profiles-daemon
+> yay -S auto-cpufreq
+> systemctl auto-cpufreq
 ```
 
 ---
@@ -273,7 +287,7 @@ timedatectl status
 
 ```bash
 > pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack
-# reboot
+> reboot
 ```
 
 ---
@@ -309,6 +323,15 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 > systemctl enable irqbalance
 ```
 
+### Solid state drives
+
+```bash
+> systemctl status fstrim.timer
+> vim /etc/fstab
+# Using the discard option for a mount in /etc/fstab enables continuous TRIM in device operations:
+# /dev/sda1  /           ext4  defaults,discard   0  1
+```
+
 ---
 
 ## System services
@@ -329,13 +352,8 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 ```bash
 > mkdir ~/.config/fontconfig
 > cp fonts.conf ~/.config/fontconfig/
-```
-
-### GTK and Qt themes
-
-```bash
-> pacman -S adwaita-qt5 adwaita-qt6
-> cp xinitrc ~/.xinitrc
+> mkdir ~/.local/share/fonts
+> cp font.ttf ~/.local/share/fonts
 ```
 
 ---
@@ -348,10 +366,30 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 > pacman -S bash-completion
 ```
 
+### Alternative shells
+
+```bash
+> pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
+> chsh -l
+> chsh -s /full/path/to/shell
+```
+
 ### Bash additions
 
 ```bash
 > cp bashrc ~/.bashrc
+```
+
+### Console prompt
+
+```bash
+> pacman -S starship
+```
+
+### Mouse support
+
+```bash
+> pacman -S gpm
 ```
 
 ### Session management
@@ -362,22 +400,46 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ---
 
+## List of applications
+
+- With pacman:
+
+  ```bash
+  > pacman -S \
+    libreoffice-fresh evince \
+    firefox chromium \
+    curl wget qbittorrent \
+    thunderbird pidgin telegram-desktop \
+    inkscape vlc \
+    nmap tcpdump wireshark-qt bitwarden \
+    alacritty gnome-terminal rsync bat eza gitea git cmake meson ninja jq dust htop fastfetch onefetch \
+    virtualbox virtualbox-guest-iso \
+    # virtualbox-host-module-arch \
+    zram-generator ntfs-3g \
+    docker \
+    pkgfile
+  ```
+
+- With yay:
+
+  ```bash
+  > yay -S \
+    visual-studio-code-bin \
+    localsend-bin rustdesk-bin \
+    p7zip-gui \
+    gnome-terminal-transparency \
+    activitywatch-bin \
+    borna-fonts iran-nastaliq-fonts ttf-amiri vazirmatn-fonts ttf-pacifico ttf-architects-daughter fonts-tillana
+  ```
+
+---
+
 ## Missing firmwares
 
 ```bash
 > pacman -S linux-firmware-qlogic
 > yay -S ast-firmware upd72020x-fw wd719x-firmware aic94xx-firmware
 > mkinitcpio -P
-```
-
----
-
-## List of applications
-
-```bash
-> pacman -S firefox vlc libreoffice-fresh \
-            ntfs-3g # for ntfs partition
-> yay -S mkinitcpio-firmware persepolis-git gnome-terminal-transparency visual-studio-code-bin borna-fonts iran-nastaliq-fonts ttf-amiri vazirmatn-fonts ttf-pacifico ttf-architects-daughter fonts-tillana
 ```
 
 ---

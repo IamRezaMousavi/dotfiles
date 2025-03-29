@@ -139,9 +139,6 @@ Firewall is a network security system that monitors and controls incoming and ou
   - arch: `ufw`
   - see [ufw](./ufw.md)
 
-- [Trust wallet](https://trustwallet.com/): Trust Wallet is the best ethereum wallet and cryptocurrency wallet to store your favourite BEP2, ERC20 and ERC721, tokens. [github](https://github.com/trustwallet/wallet-core) `MIT` `C++`
-  - Just for mobiles and browsers
-
 ---
 
 ### Font
