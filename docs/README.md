@@ -20,6 +20,7 @@ Documentation of environment that I like
   - [Finances](#finances)
   - [Firewall](#firewall)
   - [Font](#font)
+  - [Job Scheduler]
   - [Launcher](#launcher)
   - [Media Player](#media-player)
   - [Office](#office)
@@ -75,7 +76,8 @@ See [cli](./cli.md)
 Encryption software is software that uses cryptography to prevent unauthorized access to digital information. Cryptography is used to protect digital information on computers as well as the digital information that is sent to other computers over the Internet. [wikipedia](https://en.wikipedia.org/wiki/Encryption_software)
 
 - [GnuPG](https://gnupg.org/): GnuPG is a complete and free implementation of the OpenPGP standard as defined by RFC4880 (also known as PGP). GnuPG allows you to encrypt and sign your data and communications; it features a versatile key management system, along with access modules for all kinds of public key directories. [source-code](https://git.gnupg.org/) `GPL-3.0-or-later` `C`
-  - For usage see [gpg-usage](./gpg-usage.md)
+  - arch: `gnupg`
+  - see [gpg](./gpg.md)
 
 ---
 
@@ -148,6 +150,17 @@ Firewall is a network security system that monitors and controls incoming and ou
 Each font is a matched set of type, with a piece (a "sort") for each glyph. A typeface consists of various fonts that share an overall design. [wikipedia](https://en.wikipedia.org/wiki/Font)
 
 See [font](./font.md)
+
+---
+
+### Job Scheduler
+
+**[`^    back to top    ^`](#table-of-contents)**
+
+A job scheduler is a computer application for controlling unattended background program execution of jobs. [wikipedia](https://en.wikipedia.org/wiki/Job_scheduler)
+
+- Cron: A time-based job scheduler.
+  - see [cron](./cron.md)
 
 ---
 

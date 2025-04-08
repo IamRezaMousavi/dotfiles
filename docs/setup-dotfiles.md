@@ -18,7 +18,7 @@ Refrence to setup dotfiles...
 
 ## Git
 
-```bash
+```sh
 cp gitconfig ~/.gitconfig
 ```
 
@@ -26,7 +26,7 @@ Install `gnome-keyring`, `libsecret`
 
 For remove passwords:
 
-```bash
+```sh
 rm ~/.local/share/keyrings/user.keystore
 or
 rm ~/.local/share/keyrings/login.keystore
@@ -34,14 +34,14 @@ rm ~/.local/share/keyrings/login.keystore
 
 Or
 
-```bash
+```sh
 git config --global --unset credential.helper
 git push
 ```
 
 Export Git Repo:
 
-```bash
+```sh
 # zip archive
 git archive -o output.zip master
 ```
@@ -59,7 +59,7 @@ chsh -s full-path-to-shell
 
 ## Vim
 
-```bash
+```sh
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ./vimrc ~/.vimrc
 ```
@@ -70,7 +70,7 @@ then run `PluginInstall` in `vim`
 
 ## Set Default Application
 
-```bash
+```sh
 xdg-mime query default inode/directory
 xdg-mime default org.gnome.nautilus.desktop inode/directory
 ```
@@ -81,7 +81,7 @@ xdg-mime default org.gnome.nautilus.desktop inode/directory
 
 Clean unused packages:
 
-```bash
+```sh
 sudo pacman -Qtdq | sudo pacman -Rns -
 ```
 
@@ -89,7 +89,7 @@ To clean unneeded cache:
 
 Install `pacman-contrib` and run:
 
-```bash
+```sh
 paccache -r
 ```
 
@@ -101,7 +101,7 @@ and can enable `paccache.timer` with systemd
 
 To install:
 
-```bash
+```sh
 sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib arm-none-eabi-binutils openocd
 ```
 
@@ -111,7 +111,7 @@ sudo pacman -S arm-none-eabi-gcc arm-none-eabi-newlib arm-none-eabi-binutils ope
 
 To enable `switch window`:
 
-```bash
+```sh
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 ```
 
@@ -121,7 +121,7 @@ gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 
 To install android studio deps:
 
-```bash
+```sh
 sudo pacman -S lib32-glibc lib32-ncurses lib32-gcc-libs lib32-zlib lib32-bzip2
 ```
 

@@ -68,7 +68,7 @@ This document is a guide for installing Arch Linux using the live system booted 
 
 #### iwctl
 
-```bash
+```sh
 > iwctl
 [iwd]> device list
 [iwd]> station <device> scan
@@ -79,31 +79,31 @@ This document is a guide for installing Arch Linux using the live system booted 
 
 #### Ping
 
-```bash
+```sh
 ping archlinux.org
 ```
 
 ### Update the system clock
 
-```bash
+```sh
 timedatectl status
 ```
 
 ### Partition the disks
 
-```bash
+```sh
 > fdisk -l # for mbr
 > fdisk /dev/the_disk_to_be_partitioned
 > gdisk # for uefi
 ```
 
-```bash
+```sh
 > cfdisk # In graphic mode
 ```
 
 ### Format the partitions
 
-```bash
+```sh
 > mkfs.ext4 /dev/<partition_name>
 > mkfs.fat -F 32 /dev/<efi_partition_name>
 > mkswap /dev/<swap_partition_name>
@@ -111,7 +111,7 @@ timedatectl status
 
 ### Mount the file systems
 
-```bash
+```sh
 > mount /dev/<partition_name> /mnt
 > mount --mkdir /dev/<efi_partition_name> /mnt/boot
 > swapon /dev/<swap_partition_name>
@@ -119,7 +119,7 @@ timedatectl status
 
 #### Swap
 
-```bash
+```sh
 > pacman -S zram-generator
 > systemctl enable systemd-zram-setup@zram0
 ```
@@ -130,13 +130,13 @@ timedatectl status
 
 ### Select the mirrors
 
-```bash
+```sh
 > vim /etc/pacman.d/mirrorlist
 ```
 
 ### Install essential packages
 
-```bash
+```sh
 > pacstrap -K /mnt base linux linux-firmware <intel-ucode>or<amd-ucode> networkmanager iwd vim man-db
 ```
 
@@ -146,26 +146,26 @@ timedatectl status
 
 ### Fstab
 
-```bash
+```sh
 > genfstab -U /mnt >> /mnt/etc/fstab
 ```
 
 ### Chroot
 
-```bash
+```sh
 > arch-chroot /mnt
 ```
 
 ### Time zone
 
-```bash
+```sh
 > ln -sf /usr/share/zoneinfo/<region>/<city> /etc/localtime
 > hwclock --systohc # to generate /etc/adjtime
 ```
 
 ### Localization
 
-```bash
+```sh
 > nano /etc/locale.gen # uncomment en_US.UTF-8 UTF-8
 > locale-gen
 > echo "LANG=en_US.UTF-8" > /etc/locale.conf
@@ -173,13 +173,13 @@ timedatectl status
 
 ### Hostname
 
-```bash
+```sh
 > echo "<host_name>" > /etc/hostname
 ```
 
 ### Network configuration
 
-```bash
+```sh
 > systemctl enable NetworkManager
 ```
 
@@ -187,13 +187,13 @@ timedatectl status
 
 `-> usually not required <-`
 
-```bash
+```sh
 > mkinitcpio -P
 ```
 
 ### Boot loader
 
-```bash
+```sh
 > pacman -S grub efibootmgr
 > grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
 > grub-mkconfig -o /boot/grub/grub.cfg
@@ -205,14 +205,14 @@ timedatectl status
 
 ### Users and groups
 
-```bash
+```sh
 > useradd -mG wheel <username> # create and add user to wheel group
 > passwd <username>
 ```
 
 ### Security
 
-```bash
+```sh
 > pacman -S sudo
 > vim /etc/sudoers
 # Uncomment to allow members of group wheel to execute any command
@@ -224,14 +224,14 @@ timedatectl status
 
 ### Mirrors
 
-```bash
+```sh
 > pacman -S reflector
 > reflector --latest 5 --country <Country> --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
 ### Arch User Repository
 
-```bash
+```sh
 > pacman -S --needed git base-devel
 > git clone https://aur.archlinux.org/yay.git
 > cd yay
@@ -244,13 +244,13 @@ timedatectl status
 
 ### Display server
 
-```bash
+```sh
 > pacman -S xorg xorg-drivers
 ```
 
 ### Desktop environments
 
-```bash
+```sh
 > pacman -S gnome gdm gnome-tweaks gnome-shell-extensions
 > systemctl enable gdm
 
@@ -264,14 +264,14 @@ timedatectl status
 
 ### ACPI events
 
-```bash
+```sh
 > pacman -S acpid
 > systemctl enable acpid
 ```
 
 ### CPU frequency scaling
 
-```bash
+```sh
 > pacman -S cpupower power-profiles-daemon
 > systemctl enable cpupower
 > systemctl enable power-profiles-daemon
@@ -285,7 +285,7 @@ timedatectl status
 
 ### Sound system
 
-```bash
+```sh
 > pacman -S pipewire pipewire-audio pipewire-alsa pipewire-pulse pipewire-jack
 > reboot
 ```
@@ -296,7 +296,7 @@ timedatectl status
 
 ### Firewall
 
-```bash
+```sh
 > pacman -S ufw
 > systemctl enable ufw
 > ufw enable
@@ -308,7 +308,7 @@ timedatectl status
 
 ### Laptop touchscreen
 
-```bash
+```sh
 cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchscreen.conf
 ```
 
@@ -318,14 +318,14 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ### Improving performance
 
-```bash
+```sh
 > pacman -S irqbalance
 > systemctl enable irqbalance
 ```
 
 ### Solid state drives
 
-```bash
+```sh
 > systemctl status fstrim.timer
 > vim /etc/fstab
 # Using the discard option for a mount in /etc/fstab enables continuous TRIM in device operations:
@@ -338,7 +338,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ### Printing
 
-```bash
+```sh
 > pacman -S cups cups-pdf
 > systemctl enable cups.socket
 ```
@@ -349,7 +349,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ### fonts
 
-```bash
+```sh
 > mkdir ~/.config/fontconfig
 > cp fonts.conf ~/.config/fontconfig/
 > mkdir ~/.local/share/fonts
@@ -362,13 +362,13 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ### Tab-completion enhancements
 
-```bash
+```sh
 > pacman -S bash-completion
 ```
 
 ### Alternative shells
 
-```bash
+```sh
 > pacman -S zsh zsh-completions zsh-syntax-highlighting zsh-autosuggestions
 > chsh -l
 > chsh -s /full/path/to/shell
@@ -376,25 +376,25 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ### Bash additions
 
-```bash
+```sh
 > cp bashrc ~/.bashrc
 ```
 
 ### Console prompt
 
-```bash
+```sh
 > pacman -S starship
 ```
 
 ### Mouse support
 
-```bash
+```sh
 > pacman -S gpm
 ```
 
 ### Session management
 
-```bash
+```sh
 > pacman -S tmux
 ```
 
@@ -404,7 +404,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 - With pacman:
 
-  ```bash
+  ```sh
   > pacman -S \
     libreoffice-fresh evince \
     firefox chromium \
@@ -422,7 +422,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 - With yay:
 
-  ```bash
+  ```sh
   > yay -S \
     visual-studio-code-bin \
     localsend-bin rustdesk-bin \
@@ -436,7 +436,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ## Missing firmwares
 
-```bash
+```sh
 > pacman -S linux-firmware-qlogic
 > yay -S ast-firmware upd72020x-fw wd719x-firmware aic94xx-firmware
 > mkinitcpio -P
@@ -446,7 +446,7 @@ cp etc/X11/xorg.conf.d/99-no-touchscreen.conf /etc/X11/xorg.conf.d/99-no-touchsc
 
 ## Bluetooth
 
-```bash
+```sh
 > pacman -S bluez bluez-utils
 > modprobe btusb # to load module
 > systemctl enable bluetooth

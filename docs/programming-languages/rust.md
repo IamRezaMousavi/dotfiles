@@ -8,7 +8,7 @@ Source Code: [github](https://github.com/rust-lang/rust) `OCaml` -> `Rust`
 
 Installation (recommended):
 
-```bash
+```sh
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 

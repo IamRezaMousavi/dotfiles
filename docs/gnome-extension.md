@@ -8,7 +8,7 @@ Extensions that installed in gnome edsktop
 
 - blur-my-shell
 
-    ```bash
+    ```sh
     git clone https://github.com/aunetx/blur-my-shell.git \
     && cd blur-my-shell \
     && make install
@@ -16,7 +16,7 @@ Extensions that installed in gnome edsktop
 
 - dash-to-dock
 
-    ```bash
+    ```sh
     sudo pacman -S sassc \
     && git clone https://github.com/micheleg/dash-to-dock.git \
     && make -C dash-to-dock install
@@ -24,7 +24,7 @@ Extensions that installed in gnome edsktop
 
 - desk-changer
 
-    ```bash
+    ```sh
     git clone -b develop git@github.com:BigE/desk-changer.git \
     && cd desk-changer \
     && make all \
@@ -33,14 +33,14 @@ Extensions that installed in gnome edsktop
 
 - desktop icon ng
 
-    ```bash
+    ```sh
     git clone https://gitlab.com/rastersoft/desktop-icons-ng.git \
     && ./local_install.sh
     ```
 
 - gsconnect
 
-    ```bash
+    ```sh
     sudo pacman -S meson ninja \
     && git clone https://github.com/GSConnect/gnome-shell-extension-gsconnect.git \
     && cd gnome-shell-extension-gsconnect/ \
@@ -50,7 +50,7 @@ Extensions that installed in gnome edsktop
 
 - no-overview
 
-    ```bash
+    ```sh
     git clone https://github.com/fthx/no-overview.git \
     && no-overview \
     && mkdir -p ~/.local/share/gnome-shell/extensions/o-overview@fthx
@@ -59,14 +59,14 @@ Extensions that installed in gnome edsktop
 
 - persian-gnome-calendar
 
-    ```bash
+    ```sh
     git clone https://github.com/IamRezaMousavi/persian-gnome-calendar-extension.git \
     && make install
     ```
 
 - PrivacyMenu
 
-    ```bash
+    ```sh
     git clone https://github.com/stuarthayhurst/privacy-menu-extension.git \
     && cd privacy-menu-extension \
     && make build \
@@ -75,7 +75,7 @@ Extensions that installed in gnome edsktop
 
 - Tray-Icons-Reloaded
 
-    ```bash
+    ```sh
     git clone https://github.com/MartinPL/Tray-Icons-Reloaded.git \
     && make zip \
     && gnome-extension install trayIconsReloaded@selfmade.pl.zip

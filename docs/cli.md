@@ -131,7 +131,7 @@ A shell is a computer program that exposes an operating system's services to a h
   - winget: `--id Microsoft.WindowsTerminal -e`
   - scoop:
 
-    ```bash
+    ```sh
     scoop bucket add extras
     scoop install windows-terminal
     ```

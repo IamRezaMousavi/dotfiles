@@ -35,7 +35,7 @@ A programming language is a system of notation for writing computer programs. [w
 
 - (recommended):
 
-    ```bash
+    ```sh
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     ```
 
