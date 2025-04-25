@@ -20,7 +20,7 @@ Documentation of environment that I like
   - [Finances](#finances)
   - [Firewall](#firewall)
   - [Font](#font)
-  - [Job Scheduler]
+  - [Job Scheduler](#job-scheduler)
   - [Launcher](#launcher)
   - [Media Player](#media-player)
   - [Office](#office)
