@@ -6,9 +6,26 @@ Self-hosting is the practice of running and maintaining a website or service usi
 
 ## Table of contents
 
+- [Chat Server](#chat-server)
+  - [XMPP](#xmpp)
 - [Git Hosting](#git-hosting)
 - [Password Manager](#password-manager)
 - [Time Tracker](#time-tracker)
+
+---
+
+## Chat Server
+
+**[`^    back to top    ^`](#table-of-contents)**
+
+A source-code-hosting facility (also known as forge) is a file archive and web hosting facility for source code of software, documentation, web pages, and other works, accessible either publicly or privately. [wikipedia](https://en.wikipedia.org/wiki/Comparison_of_source-code-hosting_facilities)
+
+### XMPP
+
+Extensible Messaging and Presence Protocol (abbreviation XMPP, originally named Jabber) is an open communication protocol designed for instant messaging (IM), presence information, and contact list maintenance. [wikipedia](https://en.wikipedia.org/wiki/XMPP)
+
+- [Prosody](https://prosody.im/): Prosody is a modern XMPP communication server. [github](https://github.com/bjc/prosody) `MIT` `Lua`
+  - arch: `prosody`
 
 ---
 
