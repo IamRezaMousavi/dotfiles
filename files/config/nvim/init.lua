@@ -2,12 +2,17 @@ local opt = vim.opt
 
 opt.number = true
 opt.tabstop = 4
+opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
-opt.showmatch = true
+opt.smartindent = true
 
 opt.termguicolors = true
 vim.cmd('colorscheme habamax')
+
+-- Transparent the background
+vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -36,7 +41,24 @@ vim.g.maplocalleader = '\\'
 require('lazy').setup({
   spec = {
     -- add your plugins here
-    { 'ojroques/nvim-hardline' },
+    {
+      'ojroques/nvim-hardline',
+      config = function()
+        require('hardline').setup({})
+      end,
+    },
+    {
+      'norcalli/nvim-colorizer.lua',
+      config = function()
+        require('colorizer').setup()
+      end,
+    },
+    {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end,
+    },
     {
       'nvim-treesitter/nvim-treesitter',
       build = ':TSUpdate',
@@ -58,5 +80,3 @@ require('lazy').setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
-
-require('hardline').setup({})
