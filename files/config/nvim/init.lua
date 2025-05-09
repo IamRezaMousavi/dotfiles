@@ -1,10 +1,10 @@
 local opt = vim.opt
 
 opt.number = true
-opt.showmatch = true
 opt.tabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
+opt.showmatch = true
 
 opt.termguicolors = true
 vim.cmd('colorscheme habamax')
@@ -58,3 +58,5 @@ require('lazy').setup({
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
+
+require('hardline').setup({})
