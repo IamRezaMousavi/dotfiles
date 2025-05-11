@@ -6,6 +6,7 @@ opt.softtabstop = 4
 opt.shiftwidth = 4
 opt.expandtab = true
 opt.smartindent = true
+opt.mouse = ""
 
 opt.termguicolors = true
 vim.cmd('colorscheme habamax')
@@ -78,5 +79,9 @@ require('lazy').setup({
   -- colorscheme that will be used when installing plugins.
   install = { colorscheme = { 'habamax' } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = {
+    enabled = true,
+    concurrency = 1, ---@type number? set to 1 to check for updates very slowly
+    notify = false,
+  },
 })

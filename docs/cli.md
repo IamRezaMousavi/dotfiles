@@ -113,6 +113,15 @@ A shell is a computer program that exposes an operating system's services to a h
 - [Powershell](https://microsoft.com/PowerShell): PowerShell is a cross-platform (Windows, Linux, and macOS) automation and configuration tool/framework that works well with your existing tools and is optimized for dealing with structured data (e.g. JSON, CSV, XML, etc.), REST APIs, and object models. [github](https://github.com/PowerShell/PowerShell) `MIT` `C#`
   - aur: `powershell`
 
+### Change default shell
+
+To change user default shell, run this:
+
+```sh
+chsh -l
+chsh -s full/path/to/shell
+```
+
 ---
 
 ## Terminal Emulator
@@ -135,3 +144,5 @@ A shell is a computer program that exposes an operating system's services to a h
     scoop bucket add extras
     scoop install windows-terminal
     ```
+
+---

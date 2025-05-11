@@ -6,9 +6,7 @@ Documentation of environment that I like
 
 ## Table of contents
 
-- [Installation](#installation)
-  - [Arch Installation](#arch-installation)
-  - [Setup Dotfiles](#setup-dotfiles)
+- [Arch Installation](#arch-installation)
 - [Softwares](#softwares)
   - [Bittorret](#bittorrent)
   - [Command-line Interface](#command-line-interface)
@@ -34,15 +32,9 @@ Documentation of environment that I like
 
 ---
 
-## Installation
-
-### Arch Installation
+## Arch Installation
 
 See [arch-installation](./arch-installation.md)
-
-### Setup Dotfiles
-
-See [setup-dotfiles](./setup-dotfiles.md)
 
 ---
 
@@ -81,6 +73,16 @@ Encryption software is software that uses cryptography to prevent unauthorized a
 
 ---
 
+### Desktop Environment
+
+**[`^    back to top    ^`](#table-of-contents)**
+
+In computing, a desktop environment (DE) is an implementation of the desktop metaphor made of a bundle of programs running on top of a computer operating system that share a common graphical user interface (GUI), sometimes described as a graphical shell. [wikipedia](https://en.wikipedia.org/wiki/Desktop_environment)
+
+See [desktop](./desktop.md)
+
+---
+
 ### Editor
 
 **[`^    back to top    ^`](#table-of-contents)**
@@ -101,6 +103,16 @@ Electronic mail (email or e-mail) is a method of transmitting and receiving mess
 
 - [thunderbird](https://www.thunderbird.net/): Mozilla Thunderbird is a free and open-source cross-platform email client, personal information manager, news client, RSS and chat client that is operated by the Mozilla Foundation's subsidiary MZLA Technologies Corporation. [source-code](https://hg.mozilla.org/comm-central) `MPL-2.0` `C`
   - arch: `thunderbird`
+
+---
+
+### Embedded
+
+**[`^    back to top    ^`](#table-of-contents)**
+
+Embedded software is computer software, written to control machines or devices that are not typically thought of as computers, commonly known as embedded systems. [wikipedia](https://en.wikipedia.org/wiki/Embedded_software)
+
+See [embedded](./embedded.md)
 
 ---
 
@@ -249,6 +261,27 @@ In software engineering, version control is a class of systems responsible for m
 
 - [Git](https://git-scm.com/): Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. [source-code](https://git.kernel.org/pub/scm/git/git.git) `GPL-2.0-only` `C`
   - arch: `git`
+
+#### Git Help
+
+- Git Credential Manager:
+
+  - Install `gnome-keyring`, `libsecret`
+  - Remove passwords:
+
+    ```sh
+    rm ~/.local/share/keyrings/user.keystore
+    # or
+    rm ~/.local/share/keyrings/login.keystore
+    # or disable GCM
+    git config --global --unset credential.helper
+    ```
+
+- Export git repo:
+
+  ```sh
+  git archive -o output.zip master
+  ```
 
 ---
 

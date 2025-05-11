@@ -10,3 +10,5 @@
 	gpgsign = true
 [core]
 	editor = vim
+[alias]
+	undo = reset --soft HEAD~1
