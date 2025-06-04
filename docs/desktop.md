@@ -7,6 +7,7 @@ Documentation of Desktop Environment usage
 ## Table of contents
 
 - [Gnome](#gnome)
+- [X Desktop Group](#x-desktop-group)
 
 ---
 
@@ -22,6 +23,16 @@ To enable `switch window`:
 gsettings set org.gnome.desktop.wm.keybindings switch-windows "['<Alt>Tab']"
 ```
 
+### Default Terminal
+
+To change default terminal:
+
+```sh
+gsettings get org.gnome.desktop.default-applications.terminal exec
+
+gsettings set org.gnome.desktop.default-applications.terminal exec 'alacritty'
+```
+
 ---
 
 ## X Desktop Group
@@ -34,6 +45,7 @@ To set default application, run this:
 
 ```sh
 xdg-mime query default inode/directory
+
 xdg-mime default org.gnome.nautilus.desktop inode/directory
 ```
 
