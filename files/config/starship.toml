@@ -12,3 +12,7 @@ ssh_only = false
 
 [status]
 disabled = false
+
+[cpp]
+disabled = false
+
