@@ -36,6 +36,10 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # Install pkgfile
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
+if [ -d "$HOME/bin" ] ; then
+    export PATH="$HOME/bin:$PATH"
+fi
+
 eval "$(starship init zsh)"
 
 # flutter
